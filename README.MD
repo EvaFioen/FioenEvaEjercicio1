@@ -16,3 +16,4 @@ In the game you will go through the next parts:
 5. In the menu option: See the matrix, you will see the matrix again.
 6. In the menu option: Leave, the game will shut down
 
+For future implementation of the game I would like to add a part of where you can see your high score. Also, to add a part of level of difficulty where the random number of gameOver will be set to the level you want to play. At an easy level, that would be between 0s and 1s, to make the lever hard this would be set to 9 for example. 

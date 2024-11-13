@@ -122,16 +122,18 @@ public class FioenEvaEjercicio1 {
                         for (int j = 0; j < matrix[filaBomba].length; j++) {
                             matrix[filaBomba][j] = 0;
                         }
-                            Random bomba = new Random();
-                            matrix[filaBomba][columnaBomba] = bomba.nextInt(2);
 
-                            System.out.println("This is de updated matrix"); // Y aqui se muestra y verifica que se ha cambiado la fila y columna
-                            for (int i = 0; i < matrix.length; i++) {
-                                for (int j = 0; j < matrix[i].length; j++) {
-                                    System.out.print(matrix[i][j] + " ");
-                                }
-                                System.out.println();
+                        // añadiendo un numero random entre 0 y 1 para que se gana o no el juego
+                        Random gameOver = new Random();
+                        matrix[filaBomba][columnaBomba] = gameOver.nextInt(2);
+
+                        System.out.println("This is de updated matrix"); // Y aqui se muestra y verifica que se ha cambiado la fila y columna
+                        for (int i = 0; i < matrix.length; i++) {
+                            for (int j = 0; j < matrix[i].length; j++) {
+                                System.out.print(matrix[i][j] + " ");
                             }
+                            System.out.println();
+                        }
 
                         if (filaBomba == 0 && 0 == columnaBomba) { // si son 0s, el usuario ha ganado y se cierra el juego
                             System.out.println("You have won! The game will be closed.");
