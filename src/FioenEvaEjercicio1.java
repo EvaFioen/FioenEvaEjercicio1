@@ -13,7 +13,7 @@ public class FioenEvaEjercicio1 {
         Random matrixMaker = new Random();
 
 
-        System.out.println("Welcome to Bomber Man!\nIn order to make the matrix we will ask you for numbers of rows and columns.");
+        System.out.println("Welcome to Bomber Man!\nIn order to make the matrix, we will ask you for numbers of rows and columns.");
 
         while (usuarioFilas < 2 || usuarioFilas > 10) { //poniendo los limites de filas
             System.out.println("Enter the number of rows between 2-10:");
@@ -113,7 +113,7 @@ public class FioenEvaEjercicio1 {
                         for (int i = 0; i < matrix.length; i++) {
                             sumColumna += matrix[i][columnaBomba];
                         }
-                        System.out.println("The explosion value is " + (sumFila + sumColumna - matrix[filaBomba][columnaBomba]));// Para no calcular doble
+                        System.out.println("The explosion value is: " + (sumFila + sumColumna - matrix[filaBomba][columnaBomba]));// Para no calcular doble
 
                         // cambiando la fila y columna eligido por el usuario de poner la bomba a 0s
                         for (int i = 0; i < matrix.length; i++) {
@@ -135,17 +135,19 @@ public class FioenEvaEjercicio1 {
                             System.out.println();
                         }
 
-                        if (filaBomba == 0 && 0 == columnaBomba) { // si son 0s, el usuario ha ganado y se cierra el juego
+                        if (matrix[filaBomba][columnaBomba] == 0) { // si son 0s, el usuario ha ganado y se cierra el juego
                             System.out.println("You have won! The game will be closed.");
                             out = true;
                             break;
-                        }else if (matrix[filaBomba][columnaBomba] == 1){ // si hay un valor que no es 0, el usuario ha perdido se vuele al menu
+                        } else if (matrix[filaBomba][columnaBomba] == 1) {
+                            // si hay un valor que no es 0, el usuario ha perdido se vuele al menu
                             System.out.println("You have lost. Press enter to return to the menu.");
                             input.nextLine();
                             break;
                         }else{
                             System.out.println("Something went wrong. Reload the game.");
                         }
+
 
                     case 1: // Se muestra la matriz de inicio (antes de poner la bomba)
                         System.out.println("The matrix:");
