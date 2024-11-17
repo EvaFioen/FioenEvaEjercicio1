@@ -5,16 +5,17 @@ public class FioenEvaEjercicio1 {
 
     public static void main(String[] args) {
 
+        // VARIABLES
         Scanner input = new Scanner(System.in);
         int usuarioFilas = 1;
         int usuarioColumnas = 1;
         int low = 2;       //he tenido en cuenta que para que sea un matriz, que al menos tiene que haber 2 columnas y 2 filas
         int high = 9;
         Random matrixMaker = new Random();
+        boolean out;
 
-
+        // Solicitando al usuario el numero de filas quiere para el matriz
         System.out.println("Welcome to Bomber Man!\nIn order to make the matrix, we will ask you for numbers of rows and columns.");
-
         while (usuarioFilas < 2 || usuarioFilas > 10) { //poniendo los limites de filas
             System.out.println("Enter the number of rows between 2-10:");
             if (input.hasNextInt()) {
@@ -30,12 +31,13 @@ public class FioenEvaEjercicio1 {
             }
         }
 
+        // Solicitando al usuario el numero de columnas quiere para el matriz
         while (usuarioColumnas < 2 || usuarioColumnas > 10) { // poniendo los limites de columnas
             System.out.println("Enter the number of columns between 2-10:");
             if (input.hasNextInt()) {
                 usuarioColumnas = input.nextInt();
                 if (usuarioColumnas >= 2 && usuarioColumnas <= 10) {
-                    System.out.println("You haven chosen " + usuarioColumnas + " columns" + "\n");
+                    System.out.println("You haven chosen " + usuarioColumnas + " columns \n");
                 } else {
                     System.out.println("That number is too big or too small. Try again!");
                 }
@@ -45,7 +47,9 @@ public class FioenEvaEjercicio1 {
             }
         }
 
-        // La creacion de la matriz, teniendo en cuenta los numeros aleatorios y poniendo el max para el 'random' que se llama matrixMaker
+        /* La creacion de la matriz, teniendo en cuenta los numeros
+        aleatorios y poniendo el max para el 'random' que se llama matrixMaker.
+        */
         System.out.println("This is the matrix that we have created for you!");
         int[][] matrix = new int[usuarioFilas][usuarioColumnas];
         for (usuarioFilas = 0; usuarioFilas < matrix.length; usuarioFilas++) {
@@ -55,7 +59,7 @@ public class FioenEvaEjercicio1 {
             }
             System.out.println();
         }
-        boolean out = false;
+        out = false;
 
         // Aqui se encuentran el parte del menu con sus opciones para eligir
         do {
@@ -123,11 +127,13 @@ public class FioenEvaEjercicio1 {
                             matrix[filaBomba][j] = 0;
                         }
 
-                        // añadiendo un numero random entre 0 y 1 para que se gana o no el juego
+                        /* He añadido este parte fuera del ejercicio, añadiendo un número random entre 0s y 1s
+                        donde el usuario ha eligo la fila y la columna. Si son todos 0 el usuario gana, si hay un 1 el
+                        usuario pierde.*/
                         Random gameOver = new Random();
                         matrix[filaBomba][columnaBomba] = gameOver.nextInt(2);
 
-                        System.out.println("This is de updated matrix"); // Y aqui se muestra y verifica que se ha cambiado la fila y columna
+                        System.out.println("This is your matrix after the bomb exploded"); // Y aqui se muestra y verifica que se ha cambiado la fila y columna
                         for (int i = 0; i < matrix.length; i++) {
                             for (int j = 0; j < matrix[i].length; j++) {
                                 System.out.print(matrix[i][j] + " ");
@@ -140,14 +146,13 @@ public class FioenEvaEjercicio1 {
                             out = true;
                             break;
                         } else if (matrix[filaBomba][columnaBomba] == 1) {
-                            // si hay un valor que no es 0, el usuario ha perdido se vuele al menu
+                            // si hay un valor que no es 0, el usuario ha perdido y vuele al menu para poner otra bomba
                             System.out.println("You have lost. Press enter to return to the menu.");
                             input.nextLine();
                             break;
-                        }else{
+                        } else {
                             System.out.println("Something went wrong. Reload the game.");
                         }
-
 
                     case 1: // Se muestra la matriz de inicio (antes de poner la bomba)
                         System.out.println("The matrix:");
@@ -178,5 +183,3 @@ public class FioenEvaEjercicio1 {
         } while (!out);
     }
 }
-
-
